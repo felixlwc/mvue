@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -8,11 +8,10 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
     "noEmitHelpers": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["node"],
+
     "baseUrl": ".",
     "paths": {
       "@vue/*": ["packages/*/src"]
