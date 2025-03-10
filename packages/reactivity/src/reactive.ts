@@ -1,4 +1,5 @@
 import { isObject } from "@vue/shared";
+import { track } from "./reactiveEffect";
 
 const reactiveMap = new WeakMap<Object, ProxyConstructor>();
 
@@ -11,6 +12,9 @@ const mutations: ProxyHandler<any> = {
     if (key === ReactiveFlags.IS_REACTIVE) {
       return true;
     }
+
+    track(target, key);
+
     return Reflect.get(target, key, receiver);
   },
   set(target, key, value, receiver) {
@@ -38,3 +42,5 @@ function createReactiveObject(target: Object) {
   reactiveMap.set(target, proxy);
   return proxy;
 }
+
+export { reactive };
